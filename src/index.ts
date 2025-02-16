@@ -11,7 +11,7 @@ const server = createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://undercover-drab.vercel.app",
+    origin: process.env.ORIGIN ?? "http://localhost:3000",
     methods: ["GET", "POST"],
     credentials: true,
   },
