@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3001:3001"
+      - "5555:5555"
     environment:
       - NODE_ENV=production
       - ORIGIN=https://undercover-drab.vercel.app

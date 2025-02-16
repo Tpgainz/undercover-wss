@@ -21,8 +21,8 @@ io.on("connection", (socket: Socket) => {
   socketHandler(socket);
 });
 
-server.listen(3001, () => {
-  console.log("Server is running on port 3001");
+server.listen(5555, () => {
+  console.log("Server is running on port 5555");
 });
 
 if (process.env.NODE_ENV === "development") {
