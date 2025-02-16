@@ -1,9 +1,10 @@
 services:
   wss:
     build:
-      context: ./wss
+      context: .
       dockerfile: Dockerfile
     ports:
       - "3001:3001"
     environment:
-      - NODE_ENV=production 
+      - NODE_ENV=production
+      - ORIGIN=https://undercover-drab.vercel.app
