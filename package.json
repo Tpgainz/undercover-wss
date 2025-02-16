@@ -1,0 +1,27 @@
+{
+  "name": "undercover-websocket-server",
+  "version": "1.0.0",
+  "description": "A real-time server using Express and Socket.io",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "node build/index.js",
+    "build": "tsc",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
+  },
+  "dependencies": {
+    "@tpgainz/undercover-lib": "^1.0.0",
+    "express": "^4.18.2",
+    "socket.io": "^4.5.4",
+    "zod": "^3.20.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.7",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.5"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
