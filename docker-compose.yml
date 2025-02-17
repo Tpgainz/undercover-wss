@@ -1,10 +1,30 @@
+# docker-compose.yml
+version: '3'
+
 services:
   wss:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "5555:5555"
+    expose:
+      - "5555"
     environment:
       - NODE_ENV=production
       - ORIGIN=https://undercover-drab.vercel.app
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.wss.rule=Host(`wss.89.88.116.160`)"
+      - "traefik.http.routers.wss.entrypoints=websecure"
+      - "traefik.http.services.wss.loadbalancer.server.port=5555"
+      # Configuration spécifique pour WebSocket
+      - "traefik.http.middlewares.wss-compress.compress=true"
+      - "traefik.http.routers.wss.middlewares=wss-compress"
+      # Augmentation du timeout pour les connexions WebSocket
+      - "traefik.http.middlewares.wss-timeout.forwardingTimeouts.idleTimeout=300"
+      - "traefik.http.routers.wss.middlewares=wss-timeout"
+
+networks:
+  proxy:
+    external: true
